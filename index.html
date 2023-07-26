@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicBrainz API</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <script src="https://kit.fontawesome.com/5dc3ef515d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <a href="index.html"><img :src="logo" alt="MusicBrainz logo"></a>
+            <div class="buscador">
+                <input type="text" v-model="textoInput" placeholder="Ingrese una cancion a buscar...">
+                <button @click="buscarCancion"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </header>
+        <div class="infoArtista" v-if="!mostrarCanciones && discografia.length > 0">
+            <h1>Información</h1>
+            <p>{{banda.nombre}}</p>
+            <p>Fecha Creacion: {{banda.fechaCreacion}}</p>
+        </div>
+        <main>
+            <div v-if="mostrarCanciones && canciones.length > 0" class="cancion" v-for="cancion in canciones" :key="cancion.id">
+              <p><label id="color">Titulo:</label> {{ cancion.titulo }}</p>
+              <p><label id="color">Artista:</label> <a @click="mostrarDiscografia(cancion.idArtista),infoArtista(cancion.idArtista)" href="#">{{ cancion.artista }}</a></p>
+              <p><label id="color">Duracion:</label> {{ cancion.duracion }}</p>
+            </div>
+            <div class="album" v-else-if="!mostrarCanciones && discografia.length > 0" v-for="album in discografia" :key="album.titulo">
+                <p><label id="color">Album:</label> {{ album.titulo }}</p>
+                <p><label id="color">Fecha:</label> {{ album.fecha }}</p>
+            </div>
+            <p id="noresultado" v-else="discografia.length = 0 || canciones.length = 0">No se encontraron resultados con la busqueda.</p>
+        </main>
+    </div>
+
+
+    <script src="main.js"></script>
+    <script>
+        const mounted = app.mount('#app');
+    </script>
+</body>
+</html>

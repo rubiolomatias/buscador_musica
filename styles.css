@@ -1,0 +1,86 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: none;
+    background-color: #432664;
+    color: #fff;
+  }
+  
+  header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    grid-gap: 20px;
+    padding-top: 10px;
+    background-color: #7d19da;
+    justify-content: center;
+  }
+  
+  header img {
+    margin-left: 20%;
+    height: 30px;
+  }
+  
+  header .buscador {
+    margin-right: 40%;
+  }
+  
+  header .buscador input {
+    border-radius: 20px 0 0 20px;
+    padding: 10px;
+    width: 300px;
+  }
+  
+  header .buscador button {
+    border-radius: 0 20px 20px 0;
+    padding: 10px;
+  }
+  
+  #noresultado {
+    padding-top: 10px;
+    font-size: 2em;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+  
+  main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  main .cancion, .album {
+    width: 15%; 
+    min-height: 100px;
+    background-color: rgba(204, 204, 204, 0.2);
+    margin: 1%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  main a{
+    color: #ffe863;
+  }
+.infoArtista{
+  margin-top: 20px;
+  width: 82%;
+  height: 80px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(204, 204, 204, 0.2);
+}
+.infoArtista p{
+  font-size: 1.2em;
+  color: #eb743b;
+}
+label{
+  color: #eb743b;
+}
